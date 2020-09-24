@@ -1,5 +1,6 @@
 <?php
 $nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
 $direccion = $_POST['direccion'];
 $telefono = $_POST['telefono'];
 
@@ -24,9 +25,10 @@ $telefono = $_POST['telefono'];
                 </div>
 
                 <div class="card-body">
-                <p>El nombre es <?php echo $nombre ?></p>
-                <p>La dirección es <?php echo $direccion ?></p>
-                <p>El telefono es <?php echo $telefono ?></p>
+                <p>El nombre es: <?php echo $nombre ?></p>
+				<p>El apellido es: <?php echo $apellido ?></p>
+                <p>La dirección es: <?php echo $direccion ?></p>
+                <p>El telefono es: <?php echo $telefono ?></p>
                     <button class="btn btn-primary" type="button" onclick="location.href='index.html'">Regresar</button>
                 </div>
             </div>
