@@ -1,47 +1,98 @@
+<!-- Luis Angel Romero Reyes -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/flatly/bootstrap.min.css"
-        integrity="sha384-mhpbKVUOPCSocLzx2ElRISIORFRwr1ZbO9bAlowgM5kO7hnpRBe+brVj8NNPUiFs" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script>
+        function enviar() {
+            id = document.getElementById("id").value;
+            nombre = document.getElementById("nombre").value;
+            direccion = document.getElementById("direccion").value;
+            telefono = document.getElementById("telefono").value;
+
+            if (id == null || id.length == 0) {
+
+                alert('[Error] El campo id no puede ir vacio');
+                return false;
+
+            } else if (nombre == null || nombre.length == 0) {
+
+                alert('[Error] El campo nombre no puede ir vacio');
+                return false;
+
+            } else if (direccion == null || direccion.length == 0) {
+
+                alert('[Error] El campo direccion no puede ir vacio');
+                return false;
+
+            } else if (telefono == null || telefono.length == 0) {
+
+                alert('[Error] El campo telefono no puede ir vacio');
+                return false;
+
+            } else if (isNaN(parseInt(id))) {
+
+                alert('[Error] El id debe ser numerico');
+                return false;
+
+            } else if (isNaN(parseInt(telefono)) || telefono.length !== 10) {
+
+                alert('[Error] El telefono debe ser numerico de 10 digitos');
+                return false;
+
+            } else {
+                document.getElementById("myForm").submit();
+            }
+
+
+        }
+    </script>
+
+    <script>
+        function mostrarTodos() {
+            document.getElementById("myForm").submit();
+        }
+    </script>
     <title>Formulario</title>
 </head>
 
 <body>
-    <div class="col-md-3">
-        <div class="container p-2">
-            <div class="card ">
-                <div class="card-header text-center">
-                    Formulario
-                </div>
+    <form id="myForm" action="save-page.php" method="GET">
 
-                <div class="card-body">
-                    <form action="second-page.php" method="post">
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">Nombre:</label>
-                            <input type="text" name="nombre">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-lg-4 control-label">Dirección: </label>
-                            <input type="text" name="direccion">
-                        </div>
-
-                        <div class="form-group">
-                            <label  class="col-lg-4 control-label">Telefono: </label>
-                            <input type="text" name="telefono">
-                        </div>
-
-                        <div class="text-center">
-                            <input class="btn btn-primary" type="submit" value="Guardar">
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="form-group">
+            <label class="col-lg-4 control-label">ID:</label>
+            <input type="text" name="id" id="id">
         </div>
-    </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">Nombre:</label>
+            <input type="text" name="nombre" id="nombre">
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">Dirección: </label>
+            <input type="text" name="direccion" id="direccion">
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-4 control-label">Telefono: </label>
+            <input type="text" name="telefono" id="telefono">
+        </div>
+
+        <div class="text-center">
+            <!-- <input type="submit" value="Guardar"> -->
+            <input type="button" value="Guardar" onclick="enviar()">
+
+            <input type="button" value="Mostrar todos"
+                onclick="this.form.action='all-page.php';this.form.method='POST';mostrarTodos()">
+        </div>
+
+
+    </form>
 </body>
 
 </html>
