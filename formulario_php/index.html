@@ -44,7 +44,13 @@
                 alert('[Error] El telefono debe ser numerico de 10 digitos');
                 return false;
 
-            } else {
+            } else if(!isNaN(nombre)) {
+
+                alert('[Error] El nombre no puede contener numeros');
+                return false; 
+            }
+                    
+            else {
                 document.getElementById("myForm").submit();
             }
 
