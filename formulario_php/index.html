@@ -44,7 +44,7 @@
                 alert('[Error] El telefono debe ser numerico de 10 digitos');
                 return false;
 
-            } else if(!isNaN(nombre)) {
+            } else if(!/^[A-Z]+$/i.test(nombre)) {
 
                 alert('[Error] El nombre no puede contener numeros');
                 return false; 
