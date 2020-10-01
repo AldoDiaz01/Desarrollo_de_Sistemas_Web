@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f4488a58-c156-4dab-97c7-3bc0c8b0fd2f" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectId" id="1iCsOy2uGnS9z9tFwXujINBbeha" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="/etc/alternatives/php" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Run" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server" document_root="$PROJECT_DIR$" port="7000">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4488a58-c156-4dab-97c7-3bc0c8b0fd2f" name="Default Changelist" comment="" />
+      <created>1601422880496</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1601422880496</updated>
+      <workItem from="1601422882173" duration="2250000" />
+      <workItem from="1601425227689" duration="1119000" />
+      <workItem from="1601579374202" duration="1841000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="573" y="210" width="824" height="682" key="#CLI_Interpreters" timestamp="1601425638561">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state x="573" y="210" width="824" height="682" key="#CLI_Interpreters/69.27.1851.1053@69.27.1851.1053" timestamp="1601425638561" />
+    <state x="590" y="166" width="799" height="772" key="#PHP" timestamp="1601425643294">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state x="590" y="166" width="799" height="772" key="#PHP/69.27.1851.1053@69.27.1851.1053" timestamp="1601425643294" />
+    <state x="452" y="211" width="1116" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601581447137">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state x="452" y="211" width="1116" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/69.27.1851.1053@69.27.1851.1053" timestamp="1601581447137" />
+    <state x="752" y="309" key="FileChooserDialogImpl" timestamp="1601425621844">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state x="752" y="309" key="FileChooserDialogImpl/69.27.1851.1053@69.27.1851.1053" timestamp="1601425621844" />
+    <state width="1803" height="269" key="GridCell.Tab.0.bottom" timestamp="1601581450275">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state width="1803" height="269" key="GridCell.Tab.0.bottom/69.27.1851.1053@69.27.1851.1053" timestamp="1601581450275" />
+    <state width="1803" height="269" key="GridCell.Tab.0.center" timestamp="1601581450275">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state width="1803" height="269" key="GridCell.Tab.0.center/69.27.1851.1053@69.27.1851.1053" timestamp="1601581450275" />
+    <state width="1803" height="269" key="GridCell.Tab.0.left" timestamp="1601581450275">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state width="1803" height="269" key="GridCell.Tab.0.left/69.27.1851.1053@69.27.1851.1053" timestamp="1601581450275" />
+    <state width="1803" height="269" key="GridCell.Tab.0.right" timestamp="1601581450275">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state width="1803" height="269" key="GridCell.Tab.0.right/69.27.1851.1053@69.27.1851.1053" timestamp="1601581450275" />
+    <state x="350" y="183" key="SettingsEditor" timestamp="1601581408563">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state x="350" y="183" key="SettingsEditor/69.27.1851.1053@69.27.1851.1053" timestamp="1601581408563" />
+    <state x="656" y="259" width="675" height="678" key="search.everywhere.popup" timestamp="1601425946605">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state x="656" y="259" width="675" height="678" key="search.everywhere.popup/69.27.1851.1053@69.27.1851.1053" timestamp="1601425946605" />
+    <state x="719" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1601426050506">
+      <screen x="69" y="27" width="1851" height="1053" />
+    </state>
+    <state x="719" y="466" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/69.27.1851.1053@69.27.1851.1053" timestamp="1601426050506" />
+  </component>
+</project>
