@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 2/10/2020, 01:15:15 AM
-    Author     : Asti Consultoria de Software
+    Author     : Luis Angel
 --%>
 
 <%@page import="model.Persona"%>
@@ -71,8 +71,8 @@
                     <td><%= personas.get(index).getDireccion()%></td>
                     <td><%= personas.get(index).getTelefono()%></td>
                     <td>
-                        <input type="button" value="Editar">
-                        <a href="eliminar.jsp?id=<%= personas.get(index).getId() %>" class="btn" >Eliminar</a>
+                        <input type="button" value="Editar" onclick="location.href='editar.jsp'">
+                        <input type="button" value="Eliminar" onclick="location.href='eliminar.jsp?id=<%= personas.get(index).getId() %>'">
                     </td>
                 </tr>
                 <%
