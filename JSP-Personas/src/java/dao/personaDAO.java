@@ -15,7 +15,7 @@ import model.Persona;
  *
  * @author Luis Angel
  */
-public class personaDAO implements IDAO<Persona, Integer>{
+public class PersonaDAO implements IDAO<Persona, Integer>{
 
     @Override
     public Persona insert(Persona entidad) {
@@ -29,7 +29,11 @@ public class personaDAO implements IDAO<Persona, Integer>{
 
     @Override
     public Persona update(Persona entidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "UPDATE tb_personas SET "
+                + "nombre = '" + entidad.getNombre() + "', "
+                + "direccion = '" + entidad.getDireccion() + "', "
+                + "telefono = '" + entidad.getTelefono() + "' WHERE id = " + entidad.getId();
+        return ConnectionDB.getInstance().execute(sql) ? entidad : null;
     }
 
     @Override
@@ -39,7 +43,16 @@ public class personaDAO implements IDAO<Persona, Integer>{
 
     @Override
     public Persona find(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Persona persona = null;
+        try{
+            ResultSet rs = ConnectionDB.getInstance().executeQuery("SELECT * FROM tb_personas WHERE id = '" + id + "'");
+            if(rs.next()){
+                persona = new Persona(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return persona;
     }
 
     @Override
@@ -51,7 +64,7 @@ public class personaDAO implements IDAO<Persona, Integer>{
                 personas.add(new Persona(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4)));
             }
         } catch(SQLException ex) {
-            Logger.getLogger(personaDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PersonaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return personas;
     }

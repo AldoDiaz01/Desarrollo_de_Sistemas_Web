@@ -6,7 +6,7 @@
 
 <%@page import="model.Persona"%>
 <%@page import="java.util.List"%>
-<%@page import="dao.personaDAO"%>
+<%@page import="dao.PersonaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@
         <title>Inicio</title>
     </head>
     <%
-        personaDAO personaDao = new personaDAO();
+        PersonaDAO personaDao = new PersonaDAO();
         List<Persona> personas = personaDao.findAll();
     %>
 
@@ -71,7 +71,7 @@
                     <td><%= personas.get(index).getDireccion()%></td>
                     <td><%= personas.get(index).getTelefono()%></td>
                     <td>
-                        <input type="button" value="Editar" onclick="location.href='editar.jsp'">
+                        <input type="button" value="Editar" onclick="location.href='editar.jsp?id=<%= personas.get(index).getId()%>'">
                         <input type="button" value="Eliminar" onclick="location.href='eliminar.jsp?id=<%= personas.get(index).getId() %>'">
                     </td>
                 </tr>

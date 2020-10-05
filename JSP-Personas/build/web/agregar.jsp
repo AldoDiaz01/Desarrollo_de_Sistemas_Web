@@ -4,7 +4,7 @@
     Author     : Luis Angel
 --%>
 
-<%@page import="dao.personaDAO"%>
+<%@page import="dao.PersonaDAO"%>
 <%@page import="model.Persona"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -14,7 +14,7 @@
     persona.setNombre(request.getParameter("nombre"));
     persona.setDireccion(request.getParameter("direccion"));
     persona.setTelefono(request.getParameter("telefono"));
-    personaDAO personaDao = new personaDAO();
+    PersonaDAO personaDao = new PersonaDAO();
     if (persona.getNombre() != null && persona.getDireccion() != null && persona.getTelefono() != null) {
         personaDao.insert(persona);
     }

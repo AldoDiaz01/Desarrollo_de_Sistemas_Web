@@ -4,11 +4,11 @@
     Author     : Luis Angel
 --%>
 
-<%@page import="dao.personaDAO"%>
+<%@page import="dao.PersonaDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     int id = Integer.parseInt(request.getParameter("id"));
-    personaDAO personaDao = new personaDAO();
+    PersonaDAO personaDao = new PersonaDAO();
     personaDao.delete(id);
     response.sendRedirect("index.jsp");
 %>
