@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class ConnectionDB {
     
-    private final String url = "jdbc:postgresql://localhost:5432/desarrollo-web?user=postgres&password=postgres";
+    private final String url = "jdbc:postgresql://localhost:5432/desarrollo-web?user=postgres&password=root";
 
     private Connection connection = null;
 
