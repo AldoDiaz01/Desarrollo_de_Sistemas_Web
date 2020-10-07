@@ -6,9 +6,9 @@ public interface IDao<T, V> {
 
     public void insert(T entity);
 
-    public T select(V id);
+    public T selectById(V id);
 
-    public List<T> selectById();
+    public List<T> select();
 
     public boolean delete(V id);
 

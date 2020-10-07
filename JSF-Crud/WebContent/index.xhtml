@@ -12,8 +12,8 @@
 
 <body>
 <h3>List students</h3>
-<h:form rendered="#{not empty crudBean.list}">
-    <h:dataTable value="#{crudBean.list}" var="item">
+<h:form rendered="#{not empty crudBean.autos}">
+    <h:dataTable value="#{crudBean.autos}" var="item">
         <h:column><f:facet name="header">ID</f:facet>#{item.id}</h:column>
         <h:column><f:facet name="header">Name</f:facet>#{item.model}</h:column>
         <h:column>
@@ -25,7 +25,7 @@
     </h:dataTable>
 </h:form>
 
-<h:panelGroup rendered="#{empty crudBean.list}">
+<h:panelGroup rendered="#{empty crudBean.autos}">
     <p>No students! Please add students.</p>
 </h:panelGroup>
 

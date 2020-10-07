@@ -9,13 +9,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class AutoDao implements IDao<Auto, Integer> {
-    public AutoDao() {
-    }
 
     @Override
     public void insert(Auto todo) {
-
         Transaction transaction = null;
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
@@ -34,6 +32,7 @@ public class AutoDao implements IDao<Auto, Integer> {
     @Override
     public Auto selectById(Integer id) {
         Transaction transaction = null;
+
         Auto todo = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
@@ -52,10 +51,11 @@ public class AutoDao implements IDao<Auto, Integer> {
     }
 
     @Override
-    public List<Auto> selectAllTodos() {
-
+    public List<Auto> select() {
         Transaction transaction = null;
+
         List<Auto> todos = null;
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
@@ -75,14 +75,15 @@ public class AutoDao implements IDao<Auto, Integer> {
     }
 
     @Override
-    public boolean deleteTodo(int id) throws SQLException {
+    public boolean delete(Integer id) {
         Transaction transaction = null;
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
 
             // Delete a todo object
-            Todo todo = session.get(Todo.class, id);
+            Auto todo = session.get(Auto.class, id);
             if (todo != null) {
                 session.delete(todo);
                 System.out.println("todo is deleted");
@@ -101,9 +102,9 @@ public class AutoDao implements IDao<Auto, Integer> {
     }
 
     @Override
-    public void updateTodo(Todo todo) throws SQLException {
-
+    public void update(Auto todo) {
         Transaction transaction = null;
+
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();

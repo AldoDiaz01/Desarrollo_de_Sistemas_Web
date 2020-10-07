@@ -11,46 +11,49 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import com.cov.crud.model.Auto;
+import com.cov.crud.model.dao.AutoDao;
 import com.cov.crud.util.CommonUtils;
 
 @ManagedBean
 @SessionScoped
 public class CrudBean implements Serializable {
-	private static final long serialVersionUID = 1L;
 
-	private List<Auto> list;
+    private List<Auto> autos;
     private Auto item = new Auto();
     private Auto beforeEditItem = null;
     private boolean edit;
 
-    @ManagedProperty(value="#{commonUtils}")
-	private CommonUtils util;
-	public void setUtil(CommonUtils util) {
-		this.util = util;
-	}
+    @ManagedProperty(value = "#{commonUtils}")
+    private CommonUtils util;
+    private AutoDao autoDao;
+
+    public void setUtil(CommonUtils util) {
+        this.util = util;
+    }
 
     @PostConstruct
     public void init() {
-        list = new ArrayList<Auto>();
+        autos = new ArrayList<>();
+        autos.addAll(autoDao.select());
     }
 
     public void add() {
-    	// DAO save the add
-        item.setId(list.isEmpty() ? 1 : list.get(list.size() - 1).getId() + 1);
-        list.add(item);
+        // DAO save the add
+        item.setId(autos.isEmpty() ? 1 : autos.get(autos.size() - 1).getId() + 1);
+        autos.add(item);
         item = new Auto();
 
         util.redirectWithGet();
     }
 
     public void resetAdd() {
-    	item = new Auto();
+        item = new Auto();
 
-    	util.redirectWithGet();
+        util.redirectWithGet();
     }
 
     public void edit(Auto item) {
-    	beforeEditItem = item.copy();
+        beforeEditItem = item.copy();
         this.item = item;
         edit = true;
 
@@ -58,7 +61,7 @@ public class CrudBean implements Serializable {
     }
 
     public void cancelEdit() {
-    	this.item.restore(beforeEditItem);
+        this.item.restore(beforeEditItem);
         this.item = new Auto();
         edit = false;
 
@@ -66,7 +69,7 @@ public class CrudBean implements Serializable {
     }
 
     public void saveEdit() {
-    	// DAO save the edit
+        // DAO save the edit
         this.item = new Auto();
         edit = false;
 
@@ -74,14 +77,14 @@ public class CrudBean implements Serializable {
     }
 
     public void delete(Auto item) throws IOException {
-    	// DAO save the delete
-        list.remove(item);
+        // DAO save the delete
+        autos.remove(item);
 
         util.redirectWithGet();
     }
 
-    public List<Auto> getList() {
-        return list;
+    public List<Auto> getAutos() {
+        return autos;
     }
 
     public Auto getItem() {
@@ -91,6 +94,4 @@ public class CrudBean implements Serializable {
     public boolean isEdit() {
         return this.edit;
     }
-
-
 }
