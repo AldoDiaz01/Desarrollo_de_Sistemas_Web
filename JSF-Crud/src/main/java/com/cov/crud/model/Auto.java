@@ -12,11 +12,11 @@ public class Auto implements Serializable {
 
     @Id
     private Integer id;
-    @Column(name = "model")
+    @Column(name = "modelo")
     private String model;
-    @Column(name = "capacity")
+    @Column(name = "capacidad")
     private Integer capacity;
-    @Column(name = "doors")
+    @Column(name = "puertas")
     private Integer doors;
 
     public Auto() {

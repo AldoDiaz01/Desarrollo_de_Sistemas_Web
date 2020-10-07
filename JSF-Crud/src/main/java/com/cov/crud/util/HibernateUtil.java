@@ -22,7 +22,7 @@ public class HibernateUtil {
                 settings.put(Environment.DRIVER, "org.postgresql.Driver");
                 settings.put(Environment.URL, "jdbc:postgresql://localhost:5432/desarrollo-web");
                 settings.put(Environment.USER, "postgres");
-                settings.put(Environment.PASS, "root");
+                settings.put(Environment.PASS, "postgres");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQL95Dialect");
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");

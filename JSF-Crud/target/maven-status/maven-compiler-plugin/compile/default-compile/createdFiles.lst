@@ -1,0 +1,4 @@
+com\cov\crud\model\Auto.class
+com\cov\crud\model\dao\AutoDao.class
+com\cov\crud\util\HibernateUtil.class
+com\cov\crud\model\dao\IDao.class

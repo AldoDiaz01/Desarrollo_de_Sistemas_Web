@@ -83,13 +83,7 @@ public class AutoDao implements IDao<Auto, Integer> {
             transaction = session.beginTransaction();
 
             // Delete a todo object
-            Auto todo = session.get(Auto.class, id);
-            if (todo != null) {
-                session.delete(todo);
-                System.out.println("todo is deleted");
-                return true;
-            }
-
+            session.delete(new Auto(id, null, null, null));
             // commit transaction
             transaction.commit();
         } catch (Exception e) {
@@ -109,7 +103,7 @@ public class AutoDao implements IDao<Auto, Integer> {
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
-            session.saveOrUpdate(todo);
+            session.update(todo);
             // commit transaction
             transaction.commit();
         } catch (Exception e) {
