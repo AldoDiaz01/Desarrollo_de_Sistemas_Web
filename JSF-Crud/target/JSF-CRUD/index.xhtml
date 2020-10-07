@@ -15,7 +15,7 @@
 <h:form rendered="#{not empty crudBean.list}">
     <h:dataTable value="#{crudBean.list}" var="item">
         <h:column><f:facet name="header">ID</f:facet>#{item.id}</h:column>
-        <h:column><f:facet name="header">Name</f:facet>#{item.model}</h:column>
+        <h:column><f:facet name="header">Name</f:facet>#{item.name}</h:column>
         <h:column>
             <h:commandButton value="edit" action="#{crudBean.edit(item)}"/>
         </h:column>
@@ -30,9 +30,9 @@
 </h:panelGroup>
 
 <h:panelGroup rendered="#{!crudBean.edit}">
-    <h3>Add auto</h3>
+    <h3>Add student</h3>
     <h:form>
-        <p>Name: <h:inputText value="#{crudBean.item.model}"/></p>
+        <p>Name: <h:inputText value="#{crudBean.item.name}"/></p>
         <p>
             <h:commandButton value="add" action="#{crudBean.add}"/>
             <h:commandButton value="reset" action="#{crudBean.resetAdd}"/>
@@ -41,9 +41,9 @@
 </h:panelGroup>
 
 <h:panelGroup rendered="#{crudBean.edit}">
-    <h3>Edit auto #{bean.item.id}</h3>
+    <h3>Edit student #{bean.item.id}</h3>
     <h:form>
-        <p>Name: <h:inputText value="#{crudBean.item.model}"/></p>
+        <p>Name: <h:inputText value="#{crudBean.item.name}"/></p>
         <p>
             <h:commandButton value="save" action="#{crudBean.saveEdit}"/>
             <h:commandButton value="cancel" action="#{crudBean.cancelEdit}"/>
