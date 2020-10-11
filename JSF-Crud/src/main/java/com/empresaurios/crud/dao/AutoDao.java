@@ -14,7 +14,7 @@ public class AutoDao implements IDao<Auto, Integer> {
     public void insert(Auto todo) {
         Transaction transaction = null;
 
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+        /*try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
             // save the student object
@@ -26,8 +26,20 @@ public class AutoDao implements IDao<Auto, Integer> {
                 transaction.rollback();
             }
             e.printStackTrace();
+        }*/
+        
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            transaction = session.beginTransaction();
+            session.save(todo);
+            transaction.commit();
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
         }
-    }
+    } 
 
     @Override
     public Auto selectById(Integer id) {
