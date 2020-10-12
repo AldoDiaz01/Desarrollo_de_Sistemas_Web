@@ -5,12 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "tb_auto")
 public class Auto implements Serializable {
 
     @Id
+    @GenericGenerator(name = "id_auto", strategy = "increment")
+    @GeneratedValue(generator = "id_auto")
+    @Column(name = "id")
     private Integer id;
     @Column(name = "modelo")
     private String model;
