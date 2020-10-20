@@ -13,6 +13,21 @@ public class AutoDao implements IDao<Auto, Integer> {
     @Override
     public void insert(Auto todo) {
         Transaction transaction = null;
+
+        /*try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            // save the student object
+            session.save(todo);
+            // commit transaction
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }*/
+        
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
@@ -24,27 +39,27 @@ public class AutoDao implements IDao<Auto, Integer> {
         } finally {
             session.close();
         }
-    }
+    } 
 
     @Override
     public Auto selectById(Integer id) {
         Transaction transaction = null;
 
         Auto todo = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
             transaction = session.beginTransaction();
+            // get an user object
             todo = session.get(Auto.class, id);
+            // commit transaction
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
-        } finally {
-            session.close();
-            return todo;
         }
+        return todo;
     }
 
     @Override
@@ -52,56 +67,62 @@ public class AutoDao implements IDao<Auto, Integer> {
         Transaction transaction = null;
 
         List<Auto> todos = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
             transaction = session.beginTransaction();
+            // get an user object
+
             todos = session.createQuery("from Auto").getResultList();
+
+            // commit transaction
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
-        } finally {
-            session.close();
-            return todos;
         }
+        return todos;
     }
 
     @Override
     public boolean delete(Integer id) {
         Transaction transaction = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
             transaction = session.beginTransaction();
+
+            // Delete a todo object
             session.delete(new Auto(id, null, null, null));
+            // commit transaction
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
-        } finally {
-            session.close();
-            return false;
         }
+        return false;
     }
 
     @Override
     public void update(Auto todo) {
         Transaction transaction = null;
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        try {
+
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
             transaction = session.beginTransaction();
+            // save the student object
             session.update(todo);
+            // commit transaction
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
-        } finally {
-            session.close();
         }
     }
 }

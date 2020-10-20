@@ -3,22 +3,22 @@
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html">
+    <link href="CSS/style.css" rel="stylesheet" type="text/css" />
 
-    <h:head>
+    <head>
         <title>Inicio</title>
         <meta charset="UTF-8"/>
         <meta name='language' content='ES'/>
-    </h:head>
+    </head>
 
-    <h:body>
+    <body>
 
 
         <h:form rendered="#{(usuarioBean.verificarSesion())}" >
-            <div>
+            <div class="welcome-card" >
                 <h1>Bienvenido usuario: #{usuarioBean.usuario.nombreUsuario}
-                    <p:commandButton value="Cerrar sesión" action="#{usuarioBean.cerrarSesion()}"/>
+                    <h:commandButton class="btn-close" value="Cerrar sesión" action="#{usuarioBean.cerrarSesion()}"/>
                 </h1>
 
 
@@ -101,6 +101,6 @@
             <p>No hay autos, por favor agrega mas autos.</p>
         </h:panelGroup>
 
-    </h:body>
+    </body>
 
 </html>

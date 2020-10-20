@@ -4,7 +4,6 @@ package com.empresaurios.crud.dao;
 
 import com.empresaurios.crud.model.Usuario;
 import com.empresaurios.crud.util.HibernateUtil;
-import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
