@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Inicio</title>
+        <meta charset="UTF-8"/>
+        <meta name='language' content='ES'/>
+    </h:head>
+    <h:body>
+        <h:form rendered="#{(usuarioBean.verificarSesion())}" >
+            <div>
+                <h1>Bienvenido usuario: #{usuarioBean.usuario.nombreUsuario}
+                    <p:commandButton value="Cerrar sesión" action="#{usuarioBean.cerrarSesion()}"/>
+                </h1>
+            </div>
+        </h:form>
+
+
+        <h:panelGroup rendered="#{!autoBean.edit and (usuarioBean.verificarSesion())}">
+            <div>
+                <h2>Agregar auto</h2>
+                <h:form>
+                    <p>Modelo:
+                        <p:inputText value="#{autoBean.item.model}" />
+                    </p>
+                    <p>Capacidad:
+                        <p:inputText value="#{autoBean.item.capacity}" />
+                    </p>
+                    <p>Puertas:
+                        <p:inputText value="#{autoBean.item.doors}" />
+                    </p>
+                    <p>
+                        <p:commandButton value="Agregar" action="#{autoBean.add}" />
+
+                        <p:commandButton value="Limpiar" action="#{autoBean.resetAdd}" />
+                    </p>
+                </h:form>
+            </div>
+        </h:panelGroup>
+        
+        <h:panelGroup rendered="#{autoBean.edit and (usuarioBean.verificarSesion())}">
+            <div>
+                <h2>Editar auto #{bean.item.id}</h2>
+                <h:form>
+                    <p>Modelo:
+                        <p:inputText value="#{autoBean.item.model}" />
+                    </p>
+                    <p>Capacidad:
+                        <p:inputText value="#{autoBean.item.capacity}" />
+                    </p>
+                    <p>Puertas:
+                        <p:inputText value="#{autoBean.item.doors}" />
+                    </p>
+                    <p>
+                        <p:commandButton value="Guardar" action="#{autoBean.saveEdit}" />
+                        <p:commandButton value="Cancelar" action="#{autoBean.cancelEdit}" />
+                    </p>
+                </h:form>
+            </div>
+        </h:panelGroup>
+        
+        <h:form rendered="#{not empty autoBean.autos and (usuarioBean.verificarSesion())}">
+            <div class="new-table">
+                <h1>Autos</h1>
+                <p:dataTable value="#{autoBean.autos}" var="auto" paginator="true" paginatorPosition="bottom" rows="5">
+                    <p:column>
+                        <f:facet name="header">ID</f:facet>#{auto.id}
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Modelo</f:facet>#{auto.model}
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Capacidad</f:facet>#{auto.capacity}
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">Puertas</f:facet>#{auto.doors}
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="Editar" action="#{autoBean.edit(auto)}" />
+                    </p:column>
+                    <p:column>
+                        <p:commandButton value="Eliminar" action="#{autoBean.delete(auto)}" />
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+        
+        <h:panelGroup rendered="#{empty autoBean.autos and (usuarioBean.verificarSesion())}">
+            <p>No hay autos, por favor agrega mas autos.</p>
+        </h:panelGroup>
+    </h:body>
+</html>
+

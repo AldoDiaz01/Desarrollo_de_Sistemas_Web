@@ -3,27 +3,27 @@
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <link href="CSS/style.css" rel="stylesheet" type="text/css" />
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Registro</title>
         <meta charset="UTF-8"/>
         <meta name='language' content='ES'/>
     </h:head>
     <h:body>
-        <div class="card">
+        <div>
             <h2>Registrarse</h2>
             <h:form>
                 <p>Usuario:
-                    <h:inputText value="#{usuarioBean.usuario.nombreUsuario}" />
+                    <p:inputText value="#{usuarioBean.usuario.nombreUsuario}" />
                 </p>
                 <p>Contraseña:
-                    <h:inputSecret value="#{usuarioBean.usuario.clave}" />
+                    <p:password value="#{usuarioBean.usuario.clave}" />
                 </p>
                 <p>
-                    <h:commandButton class="btn" value="Aceptar" action="#{usuarioBean.add()}" />
+                    <p:commandButton value="Aceptar" action="#{usuarioBean.add()}" />
 
-                    <h:commandButton class="btn-right" value="Volver" action="#{usuarioBean.navegaInicio()}" />
+                    <p:commandButton value="Volver" action="#{usuarioBean.navegaInicio()}" />
                 </p>
             </h:form>
         </div>
