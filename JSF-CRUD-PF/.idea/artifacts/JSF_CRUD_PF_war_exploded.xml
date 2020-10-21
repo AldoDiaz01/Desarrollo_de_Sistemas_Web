@@ -1,19 +1,20 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="JSF-Example:war exploded">
-    <output-path>$PROJECT_DIR$/target/JSF-CRUD</output-path>
+  <artifact type="exploded-war" name="JSF-CRUD-PF:war exploded">
+    <output-path>$PROJECT_DIR$/target/JSF-CRUD-PF-1.0-SNAPSHOT</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>JSF-Example</module>
+        <module>JSF-CRUD-PF</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="JSF-Example" />
+          <element id="module-output" name="JSF-CRUD-PF" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:7.0" />
           <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.1.7" />
           <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.1.7" />
           <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
@@ -38,13 +39,17 @@
           <element id="library" level="project" name="Maven: org.jvnet.staxex:stax-ex:1.8" />
           <element id="library" level="project" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" />
           <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.2.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-entitymanager:4.3.1.Final" />
+          <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging-annotations:1.2.0.Beta1" />
+          <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
+          <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
           <element id="library" level="project" name="Maven: javax:javaee-web-api:7.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/JSF-CRUD/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/JSF-CRUD-PF-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="JSF-Example/web/Web" />
+      <element id="javaee-facet-resources" facet="JSF-CRUD-PF/web/Web" />
     </root>
   </artifact>
 </component>

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="JSF-CRUD-PF:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>JSF-CRUD-PF</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="JSF-CRUD-PF-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="JSF-CRUD-PF:war exploded" />
+    </root>
+  </artifact>
+</component>
