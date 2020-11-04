@@ -4,6 +4,7 @@ import com.empresaurios.ejb.operations.interfaces.IOperations;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import java.util.Properties;
 
 /**
  *
@@ -12,11 +13,25 @@ import javax.naming.NamingException;
 public class Client {
 
     public static void main(String[] args) throws NamingException {
-        String name = "java:global/ejb-operations/Operations!com.empresaurios.ejb.operations.interfaces.IOperations";
-        Context jndi = new InitialContext();
 
-        IOperations operations = (IOperations) jndi.lookup(name);
+        try {
+            String host = "localhost";// if you run your client and server sample on same machine
+            String port = "3700";//default
 
-        System.out.println(operations.suma(2, 2));
+            Properties prop = new Properties();
+            prop.put("org.omg.CORBA.ORBInitialHost", host);
+            prop.put("org.omg.CORBA.ORBInitialPort", port);
+            InitialContext context = new InitialContext(prop);
+            System.out.println(" >> Obtenido un contexto JNDI");
+
+            // Obtener una referencia al Bean
+            IOperations operations = (IOperations) context.lookup("java:global/ejb-operations/Operations!com.empresaurios.ejb.operations.interfaces.IOperations"); // Nombre del ejb en el ejb-jar.xml
+            System.out.println(" >> Obtenida una referencia al Bean \"EJB Operations\"");
+            
+
+            System.out.println(operations.suma(2, 8));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
