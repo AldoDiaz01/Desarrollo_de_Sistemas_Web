@@ -2,4 +2,7 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/WebServiceSuma/WebServiceSuma?wsdl" uri="xml-resources/web-service-references/WebServiceSuma/wsdl/localhost_8080/WebServiceSuma/WebServiceSuma.wsdl"/>
     <system systemId="http://localhost:8080/WebServiceSuma/WebServiceSuma?xsd=1" uri="xml-resources/web-service-references/WebServiceSuma/wsdl/localhost_8080/WebServiceSuma/WebServiceSuma.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SumaBeanService/SumaBean?wsdl" uri="xml-resources/web-service-references/SumaBean/wsdl/localhost_8080/SumaBeanService/SumaBean.wsdl"/>
+    <system systemId="file:/C:/Users/Luis501Angel/Documents/NetBeansProjects/WebServiceSOAP/build/web/WEB-INF/wsdl/SumeWB/localhost_8080/SumaBeanService/SumaBean.wsdl" uri="xml-resources/web-service-references/SumaBean/wsdl/SumaBean.wsdl"/>
+    <system systemId="http://localhost:8080/SumaBeanService/SumaBean?xsd=1" uri="xml-resources/web-service-references/SumaBean/wsdl/localhost_8080/SumaBeanService/SumaBean.xsd_1.xsd"/>
 </catalog>
