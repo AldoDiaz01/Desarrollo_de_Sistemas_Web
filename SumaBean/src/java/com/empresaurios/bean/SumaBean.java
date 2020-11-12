@@ -5,7 +5,6 @@ package com.empresaurios.bean;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
 import javax.ejb.Singleton;
-import javax.jws.WebService;
 
 /**
  *
@@ -14,8 +13,9 @@ import javax.jws.WebService;
 @Singleton
 @Stateless
 @LocalBean
-@WebService
 public class SumaBean {
+    
+    public SumaBean() { }
 
     public int sumar(int num1, int num2) {
         return num1 + num2;
