@@ -16,10 +16,10 @@
             Bean de suma
         </description>
         <resource-env-ref-name>
-            SumaBean/SumaBean
+            BeanSuma/BeanOperations
         </resource-env-ref-name>
         <resource-env-ref-type>
-           com.empresaurios.bean.SumaBean
+           com.empresaurios.bean.BeanOperations
         </resource-env-ref-type>
     </resource-env-ref>
 </web-app>

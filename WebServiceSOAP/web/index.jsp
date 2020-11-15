@@ -4,6 +4,8 @@
     Author     : Luis Angel
 --%>
 
+<%@page import="com.empresaurios.bean.BeanOperations"%>
+<%@page import="javax.ejb.EJB"%>
 <%@page import="com.empresaurios.bean.SumaBean"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="javax.activation.DataSource"%>
@@ -20,17 +22,17 @@
     <body>
         <h1>Hello World!</h1>
         <%
-            String host = "localhost";// if you run your client and server sample on same machine
-            String port = "3700";//default
-
             Properties prop = new Properties();
-            prop.put("org.omg.CORBA.ORBInitialHost", host);
-            prop.put("org.omg.CORBA.ORBInitialPort", port);
-            Context initCtx = new InitialContext();
-            Context envCtx = (Context) initCtx.lookup("java:comp/env");
-            SumaBean bean = (SumaBean) envCtx.lookup("SumaBean/SumaBean");
+            prop.setProperty("org.omg.CORBA.ORBInitialHost", "localhost");
+            prop.setProperty("org.omg.CORBA.ORBInitialPort", "3700");
+            prop.setProperty(Context.INITIAL_CONTEXT_FACTORY, "com.sun.enterprise.naming.SerialInitContextFactory");
+            prop.setProperty(Context.STATE_FACTORIES, "com.sun.corba.ee.impl.presentation.rmi.JNDIStateFactoryImpl");
+            prop.setProperty(Context.URL_PKG_PREFIXES, "com.sun.enterprise.naming");
+            Context context = new InitialContext();
+            Context envCtx = (Context) context.lookup("java:comp/env");
+            BeanOperations bean = (BeanOperations) envCtx.lookup("BeanSuma/BeanOperations");
 
-            out.println(bean.sumar(2, 8));
+            out.println("La suma es: " + bean.sumar(2, 8));
         %>
     </body>
 </html>
