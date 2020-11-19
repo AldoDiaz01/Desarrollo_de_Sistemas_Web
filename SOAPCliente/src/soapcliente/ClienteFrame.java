@@ -95,7 +95,7 @@ public class ClienteFrame extends javax.swing.JFrame {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         // TODO add your handling code here:
-        int suma = sumar(Integer.parseInt(txtNum1.getText()), Integer.parseInt(txtNum2.getText()));
+        int suma = suma(Integer.parseInt(txtNum1.getText()), Integer.parseInt(txtNum2.getText()));
         labelResultado.setText(String.valueOf(suma));
     }//GEN-LAST:event_btnCalcularActionPerformed
 
@@ -143,10 +143,10 @@ public class ClienteFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtNum2;
     // End of variables declaration//GEN-END:variables
 
-    private static int sumar(int arg0, int arg1) {
-        com.empresaurios.SumaBeanService service = new com.empresaurios.SumaBeanService();
-        com.empresaurios.SumaBean port = service.getSumaBeanPort();
-        return port.sumar(arg0, arg1);
+    private static Integer suma(int num1, int num2) {
+        com.empresaurios.cliente.SumaWBS_Service service = new com.empresaurios.cliente.SumaWBS_Service();
+        com.empresaurios.cliente.SumaWBS port = service.getSumaWBSPort();
+        return port.suma(num1, num2);
     }
 
 

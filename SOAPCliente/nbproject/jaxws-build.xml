@@ -16,22 +16,22 @@
             <classpath path="${libs.jaxws21.classpath}"/>
         </taskdef>
     </target>
-    <target name="wsimport-client-SumaBean" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/SumaBean"/>
-        <property name="wsdl-SumaBean" location="xml-resources/web-service-references/SumaBean/wsdl/SumaBean.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/SumaBean" destdir="${build.generated.dir}/jax-wsCache/SumaBean" wsdl="${wsdl-SumaBean}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="file:/C:/Users/Luis501Angel/Documents/NetBeansProjects/WebServiceSOAP/build/web/WEB-INF/wsdl/SumeWB/localhost_8080/SumaBeanService/SumaBean.wsdl" xnocompile="true" xendorsed="true" package="com.empresaurios">
-            <depends file="${wsdl-SumaBean}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/SumaBean"/>
+    <target name="wsimport-client-SumaWBS" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/SumaWBS"/>
+        <property name="wsdl-SumaWBS" location="xml-resources/web-service-references/SumaWBS/wsdl/localhost_8081/WebServiceSOAP/SumaWBS.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/SumaWBS" destdir="${build.generated.dir}/jax-wsCache/SumaWBS" wsdl="${wsdl-SumaWBS}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8081/WebServiceSOAP/SumaWBS?wsdl" xnocompile="true" xendorsed="true" package="com.empresaurios.cliente">
+            <depends file="${wsdl-SumaWBS}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/SumaWBS"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/SumaBean">
+            <fileset dir="${build.generated.dir}/jax-wsCache/SumaWBS">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
     </target>
-    <target name="wsimport-client-clean-SumaBean" depends="-init-project">
-        <delete dir="${build.generated.dir}/jax-wsCache/SumaBean"/>
-        <delete dir="${build.generated.sources.dir}/jax-ws/com/empresaurios"/>
+    <target name="wsimport-client-clean-SumaWBS" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/SumaWBS"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/com/empresaurios/cliente"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-SumaBean"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-SumaWBS"/>
 </project>

@@ -2,6 +2,6 @@
 <Context path="/WebServiceSOAP">
  <Resource name="BeanSuma/BeanOperations" auth="Container"
             type="com.empresaurios.bean.BeanOperations"
-            factory="org.apache.naming.factory.BeanFactory"
-            bar="23"/>
+            factory="org.apache.naming.factory.BeanFactory"/>
 </Context>
+

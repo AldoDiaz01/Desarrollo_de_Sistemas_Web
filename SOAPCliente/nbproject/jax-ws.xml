@@ -2,10 +2,10 @@
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services/>
   <clients>
-    <client name="SumaBean">
-      <wsdl-url>file:/C:/Users/Luis501Angel/Documents/NetBeansProjects/WebServiceSOAP/build/web/WEB-INF/wsdl/SumeWB/localhost_8080/SumaBeanService/SumaBean.wsdl</wsdl-url>
-      <local-wsdl-file>SumaBean.wsdl</local-wsdl-file>
-      <package-name forceReplace="true">com.empresaurios</package-name>
+    <client name="SumaWBS">
+      <wsdl-url>http://localhost:8081/WebServiceSOAP/SumaWBS?wsdl</wsdl-url>
+      <local-wsdl-file>localhost_8081/WebServiceSOAP/SumaWBS.wsdl</local-wsdl-file>
+      <package-name forceReplace="true">com.empresaurios.cliente</package-name>
       <catalog-file>catalog.xml</catalog-file>
       <wsimport-options>
         <wsimport-option>
@@ -22,7 +22,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>wsdlLocation</wsimport-option-name>
-          <wsimport-option-value>file:/C:/Users/Luis501Angel/Documents/NetBeansProjects/WebServiceSOAP/build/web/WEB-INF/wsdl/SumeWB/localhost_8080/SumaBeanService/SumaBean.wsdl</wsimport-option-value>
+          <wsimport-option-value>http://localhost:8081/WebServiceSOAP/SumaWBS?wsdl</wsimport-option-value>
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>xnocompile</wsimport-option-name>
@@ -34,7 +34,7 @@
         </wsimport-option>
         <wsimport-option>
           <wsimport-option-name>package</wsimport-option-name>
-          <wsimport-option-value>com.empresaurios</wsimport-option-value>
+          <wsimport-option-value>com.empresaurios.cliente</wsimport-option-value>
         </wsimport-option>
       </wsimport-options>
     </client>
