@@ -1,11 +1,21 @@
 /*
  */
 package com.uv.empresaurios.dao;
-
+import java.util.List;
 /**
  *
  * @author Luis Angel
  */
-public interface IDao {
+public interface IDao<T, V> {
+    
+    public void insert(T entity);
+    
+    public void update(T entity);
+    
+    public boolean delete(V id);
+    
+    public T find(V id);
+    
+    public List<T> findAll();
     
 }
