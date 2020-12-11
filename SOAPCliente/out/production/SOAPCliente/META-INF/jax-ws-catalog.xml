@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/WebServiceSuma/WebServiceSuma?wsdl" uri="wsdl/localhost_8080/WebServiceSuma/WebServiceSuma.wsdl"/>
+    <system systemId="http://localhost:8080/WebServiceSuma/WebServiceSuma?xsd=1" uri="wsdl/localhost_8080/WebServiceSuma/WebServiceSuma.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/SumaBeanService/SumaBean?wsdl" uri="wsdl/localhost_8080/SumaBeanService/SumaBean.wsdl"/>
+    <system systemId="http://localhost:8080/SumaBeanService/SumaBean?xsd=1" uri="wsdl/localhost_8080/SumaBeanService/SumaBean.xsd_1.xsd"/>
+    <system systemId="file:/C:/Users/Luis501Angel/Documents/NetBeansProjects/WebServiceSOAP/build/web/WEB-INF/wsdl/SumeWB/localhost_8080/SumaBeanService/SumaBean.wsdl" uri="wsdl/SumaBean.wsdl"/>
+</catalog>
