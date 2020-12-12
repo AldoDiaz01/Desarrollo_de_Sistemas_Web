@@ -9,7 +9,7 @@ import org.hibernate.query.Query;
  *
  * @author Luis Angel
  */
-public class UsuarioBean {
+public class UsuarioDao {
     private Session session;
     
     public Usuario verificarDatos(Usuario usuario) {
