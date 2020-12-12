@@ -107,6 +107,18 @@ public class Presidente implements Serializable {
         this.partidoId = partidoId;
     }
     
-    
+    public Presidente copy() {
+        return new Presidente(id, nombre, edad, calidadGobierno, esDios, puestoRobado, partidoId);
+    }
+
+    public void restore(Presidente presidente) {
+        this.id = presidente.getId();
+        this.nombre = presidente.getNombre();
+        this.edad = presidente.getEdad();
+        this.calidadGobierno = presidente.getCalidadGobierno();
+        this.esDios = presidente.isEsDios();
+        this.puestoRobado = presidente.getPuestoRobado();
+        this.partidoId = presidente.getPartidoId();
+    }
     
 }

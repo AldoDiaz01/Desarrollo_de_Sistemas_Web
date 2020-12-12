@@ -1,5 +1,6 @@
 package com.uv.empresaurios.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,7 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 @Table(name = "tb_partido")
-public class Partido {
+public class Partido implements Serializable{
 
     @Id
     @GenericGenerator(name = "id_usuario", strategy = "increment")
@@ -66,6 +67,15 @@ public class Partido {
         this.nombreCompleto = nombreCompleto;
     }
     
-    
+    public Partido copy() {
+        return new Partido(id, nombre, antiguedad,nombreCompleto);
+    }
+
+    public void restore(Partido partido) {
+        this.id = partido.getId();
+        this.nombre = partido.getNombre();
+        this.antiguedad = partido.getAntiguedad();
+        this.nombreCompleto = partido.getNombreCompleto();
+    }
 
 }

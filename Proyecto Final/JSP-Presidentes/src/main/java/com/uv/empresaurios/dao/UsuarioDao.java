@@ -1,14 +1,11 @@
-
 package com.uv.empresaurios.dao;
+
 import com.uv.empresaurios.model.Usuario;
 import com.uv.empresaurios.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-/**
- *
- * @author Luis Angel
- */
+
 public class UsuarioDao {
     private Session session;
     

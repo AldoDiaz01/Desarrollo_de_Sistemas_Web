@@ -1,11 +1,6 @@
-/*
- */
 package com.uv.empresaurios.dao;
 import java.util.List;
-/**
- *
- * @author Luis Angel
- */
+
 public interface IDao<T, V> {
     
     public void insert(T entity);

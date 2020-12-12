@@ -1,4 +1,3 @@
-
 package com.uv.empresaurios.dao;
 
 import com.uv.empresaurios.model.Presidente;
@@ -53,7 +52,7 @@ public class PresidenteDao implements IDao<Presidente, Integer>{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            todos = session.createQuery("from Presidente").getResultList();
+            todos = session.createQuery("from tb_president").getResultList();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {

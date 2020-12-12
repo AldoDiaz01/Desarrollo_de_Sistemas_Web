@@ -1,5 +1,3 @@
-/*
- */
 package com.uv.empresaurios.bean;
 
 import com.uv.empresaurios.dao.UsuarioDao;
@@ -37,7 +35,7 @@ public class UsuarioBean {
             usuario = usuarioDao.verificarDatos(this.usuario);
             if (usuario != null) {
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
-                resultado = "autos";
+                resultado = "partidos" + "presidentes";
             } else {
                 resultado = "error";
             }
