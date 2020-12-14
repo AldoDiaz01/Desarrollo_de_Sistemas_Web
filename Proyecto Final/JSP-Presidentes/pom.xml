@@ -12,7 +12,7 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tomcat.version>9.0.38</tomcat.version>
+        <tomcat.version>7.0.55</tomcat.version>
         <jsf.version>2.1.7</jsf.version>
     </properties>
     
@@ -65,6 +65,18 @@
             <artifactId>jsf-impl</artifactId>
             <version>${jsf.version}</version>
         </dependency>
+        <dependency> 
+            <groupId>javax.servlet</groupId> 
+            <artifactId>servlet-api</artifactId> 
+            <version>2.5</version> 
+            <scope>provided</scope> 
+        </dependency> 
+        <dependency> 
+            <groupId>javax.servlet.jsp</groupId> 
+            <artifactId>jsp-api</artifactId> 
+            <version>2.1</version> 
+            <scope>provided</scope> 
+        </dependency> 
 
     </dependencies>
 
