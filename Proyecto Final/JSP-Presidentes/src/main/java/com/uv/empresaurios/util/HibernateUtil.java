@@ -1,5 +1,6 @@
 package com.uv.empresaurios.util;
 
+import com.uv.empresaurios.model.Partido;
 import com.uv.empresaurios.model.Presidente;
 import com.uv.empresaurios.model.Usuario;
 import org.hibernate.SessionFactory;
@@ -38,6 +39,7 @@ public class HibernateUtil {
 
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Presidente.class);
+                configuration.addAnnotatedClass(Partido.class);
                 configuration.addAnnotatedClass(Usuario.class);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()

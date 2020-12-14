@@ -35,7 +35,7 @@ public class UsuarioBean {
             usuario = usuarioDao.verificarDatos(this.usuario);
             if (usuario != null) {
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
-                resultado = "partidos" + "presidentes";
+                resultado = "usuario";
             } else {
                 resultado = "error";
             }

@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -35,13 +36,13 @@ public class Presidente implements Serializable {
     private String puestoRobado;
     
     @JoinColumn(name = "partido_id")
-    @ManyToOne
-    private int partidoId;
+    @OneToMany
+    private Integer partidoId;
 
     public Presidente() {
     }
 
-    public Presidente(Integer id, String nombre, int edad, int calidadGobierno, boolean esDios, String puestoRobado, int partidoId) {
+    public Presidente(Integer id, String nombre, int edad, int calidadGobierno, boolean esDios, String puestoRobado, Integer partidoId) {
         this.id = id;
         this.nombre = nombre;
         this.edad = edad;
@@ -99,11 +100,11 @@ public class Presidente implements Serializable {
         this.puestoRobado = puestoRobado;
     }
 
-    public int getPartidoId() {
+    public Integer getPartidoId() {
         return partidoId;
     }
 
-    public void setPartidoId(int partidoId) {
+    public void setPartidoId(Integer partidoId) {
         this.partidoId = partidoId;
     }
     

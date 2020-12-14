@@ -7,6 +7,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 public class UsuarioDao {
+    
     private Session session;
     
     public Usuario verificarDatos(Usuario usuario) {
@@ -42,4 +43,5 @@ public class UsuarioDao {
             session.close();
         }
     }
+    
 }
