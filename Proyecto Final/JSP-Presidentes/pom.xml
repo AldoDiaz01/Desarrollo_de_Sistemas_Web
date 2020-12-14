@@ -12,7 +12,7 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <tomcat.version>7.0.55</tomcat.version>
+        <tomcat.version>9.0.38</tomcat.version>
         <jsf.version>2.1.7</jsf.version>
     </properties>
     
@@ -77,6 +77,11 @@
             <version>2.1</version> 
             <scope>provided</scope> 
         </dependency> 
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>7.0</version>
+        </dependency>
 
     </dependencies>
 

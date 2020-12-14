@@ -1,12 +1,13 @@
-
 package com.uv.empresaurios.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
@@ -14,41 +15,41 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Table(name = "tb_presidente")
 public class Presidente implements Serializable {
-    
+
     @Id
     @GenericGenerator(name = "id_presidente", strategy = "increment")
     @GeneratedValue(generator = "id_presidente")
     @Column(name = "id")
     private Integer id;
-    
+
     private String nombre;
-    
+
     private int edad;
-    
+
     @Column(name = "calidad_gobierno")
     private int calidadGobierno;
-    
+
     @Column(name = "es_dios")
     private boolean esDios;
-    
+
     @Column(name = "puesto_robado")
     private String puestoRobado;
-    
-    @JoinColumn(name = "partido_id")
-    @OneToMany
-    private Integer partidoId;
+
+    //@ManyToOne()
+    //@JoinColumn(foreignKey = @ForeignKey(name = "president_to_partido_fk"), name = "partido")
+    private String partido;
 
     public Presidente() {
     }
 
-    public Presidente(Integer id, String nombre, int edad, int calidadGobierno, boolean esDios, String puestoRobado, Integer partidoId) {
+    public Presidente(Integer id, String nombre, int edad, int calidadGobierno, boolean esDios, String puestoRobado, String partido) {
         this.id = id;
         this.nombre = nombre;
         this.edad = edad;
         this.calidadGobierno = calidadGobierno;
         this.esDios = esDios;
         this.puestoRobado = puestoRobado;
-        this.partidoId = partidoId;
+        this.partido = partido;
     }
 
     public Integer getId() {
@@ -99,16 +100,16 @@ public class Presidente implements Serializable {
         this.puestoRobado = puestoRobado;
     }
 
-    public Integer getPartidoId() {
-        return partidoId;
+    public String getPartido() {
+        return partido;
     }
 
-    public void setPartidoId(Integer partidoId) {
-        this.partidoId = partidoId;
+    public void setPartido(String partido) {
+        this.partido = partido;
     }
-    
+
     public Presidente copy() {
-        return new Presidente(id, nombre, edad, calidadGobierno, esDios, puestoRobado, partidoId);
+        return new Presidente(id, nombre, edad, calidadGobierno, esDios, puestoRobado, partido);
     }
 
     public void restore(Presidente presidente) {
@@ -118,7 +119,7 @@ public class Presidente implements Serializable {
         this.calidadGobierno = presidente.getCalidadGobierno();
         this.esDios = presidente.isEsDios();
         this.puestoRobado = presidente.getPuestoRobado();
-        this.partidoId = presidente.getPartidoId();
+        this.partido = presidente.getPartido();
     }
-    
+
 }

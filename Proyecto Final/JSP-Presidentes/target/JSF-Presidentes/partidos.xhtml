@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <link href="CSS/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/partido.ico"/>
+    	
+
+
+    <head>
+        <title>Inicio</title>
+        <meta charset="UTF-8"/>
+        <meta name='language' content='ES'/>
+    </head>
+
+    <body>
+
+
+        <h:form rendered="#{(usuarioBean.verificarSesion())}" >
+            <div class="welcome-card" >
+                <h1>Bienvenido usuario: #{usuarioBean.usuario.nombreUsuario}
+                    <h:commandButton class="btn-close" value="Cerrar sesión" action="#{usuarioBean.cerrarSesion()}"/>
+                    <h:commandButton class="btn-close" value="Presidentes" action="#{usuarioBean.navegaPresidente()}"/>
+                </h1>
+
+
+            </div>
+        </h:form>
+
+
+
+        <h:panelGroup rendered="#{!partidoBean.edit and (usuarioBean.verificarSesion())}">
+            <div class="card">
+                <h2>Agregar partido</h2>
+                <h:form>
+                    <p>Nombre: 
+                        <h:inputText value="#{partidoBean.item.nombre}" />
+                    </p>
+                    <p>Antigüedad:  
+                        <h:inputText value="#{partidoBean.item.antiguedad}" />
+                    </p>
+                    <p>Nombre completo: 
+                        <h:inputText value="#{partidoBean.item.nombreCompleto}" />
+                    </p>
+                    <p>
+                        <h:commandButton class="btn" value="Agregar" action="#{partidoBean.add}" />
+
+                        <h:commandButton class="btn-right" value="Limpiar" action="#{partidoBean.resetAdd}" />
+                    </p>
+                </h:form>
+            </div>
+        </h:panelGroup>
+
+
+
+        <h:panelGroup rendered="#{partidoBean.edit and (usuarioBean.verificarSesion())}">
+            <div class="card">
+                <h2>Editar partido #{bean.item.id}</h2>
+                <h:form>
+                    <p>Nombre: 
+                        <h:inputText value="#{partidoBean.item.nombre}" />
+                    </p>
+                    <p>Antigüedad: 
+                        <h:inputText value="#{partidoBean.item.antiguedad}" />
+                    </p>
+                    <p>Nombre completo: 
+                        <h:inputText value="#{partidoBean.item.nombreCompleto}" />
+                    </p>
+                    <p>
+                        <h:commandButton class="btn" value="Guardar" action="#{partidoBean.saveEdit}" />
+                        <h:commandButton class="btn-right" value="Cancelar" action="#{partidoBean.cancelEdit}" />
+                    </p>
+                </h:form>
+            </div>
+        </h:panelGroup>
+        <h:form rendered="#{not empty partidoBean.partidos and (usuarioBean.verificarSesion())}">
+            <div class="new-table">
+                <h1>Partidos</h1>
+                <h:dataTable value="#{partidoBean.partidos}" var="partido">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>#{partido.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nombre</f:facet>#{partido.nombre}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Antigüedad</f:facet>#{partido.antiguedad}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nombre completo</f:facet>#{partido.nombreCompleto}
+                    </h:column>
+                    <h:column>
+                        <h:commandButton class="btn" value="Editar" action="#{partidoBean.edit(partido)}" />
+                    </h:column>
+                    <h:column>
+                        <h:commandButton class="btn" value="Eliminar" action="#{partidoBean.delete(partido)}" />
+                    </h:column>
+                </h:dataTable>
+            </div>
+        </h:form>
+
+        <h:panelGroup rendered="#{empty partidoBean.partidos and (usuarioBean.verificarSesion())}">
+            <p>No hay partidos, por favor agrega mas partidos.</p>
+        </h:panelGroup>
+
+    </body>
+
+</html>

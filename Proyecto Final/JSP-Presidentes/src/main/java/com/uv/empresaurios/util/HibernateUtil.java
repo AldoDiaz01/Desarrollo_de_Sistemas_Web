@@ -31,12 +31,7 @@ public class HibernateUtil {
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
                 settings.put(Environment.DEFAULT_SCHEMA, "public");
                 settings.put(Environment.HBM2DDL_AUTO, "update");
-                settings.put(Environment.C3P0_MIN_SIZE, 2); // Minimum number of JDBC connections in the pool.
-                settings.put(Environment.C3P0_MAX_SIZE, 10); // Maximum number of JDBC connections in the pool.
-                settings.put(Environment.C3P0_TIMEOUT, 180); // When an idle connection is removed from the pool (in second). Hibernate default: 0, never expire.
-                settings.put(Environment.C3P0_MAX_STATEMENTS, 20); // Number of prepared statements will be cached. Increase performance. Hibernate default: 0 , caching is disable.
-                settings.put(Environment.C3P0_IDLE_TEST_PERIOD, 3000); // Idle time in seconds before a connection is automatically validated. Hibernate default: 0
-
+               
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Presidente.class);
                 configuration.addAnnotatedClass(Partido.class);

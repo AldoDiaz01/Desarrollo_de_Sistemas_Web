@@ -42,6 +42,7 @@ public class UsuarioBean {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        this.usuario = new Usuario();
         return resultado;
     }
 
@@ -62,6 +63,7 @@ public class UsuarioBean {
     }
 
     public void add() {
+        System.out.println(this.usuario.toString());
         usuarioDao.registry(this.usuario);
         this.usuario = new Usuario();
         util.redirectWithGet();
@@ -80,5 +82,13 @@ public class UsuarioBean {
     
     public String navegaInicio() {
         return "index.xhtml";
+    }
+    
+    public String navegaPartido() {
+        return "partidos.xhtml";
+    }
+    
+     public String navegaPresidente() {
+        return "presidentes.xhtml";
     }
 }

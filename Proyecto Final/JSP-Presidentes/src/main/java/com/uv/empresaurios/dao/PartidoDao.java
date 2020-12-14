@@ -53,7 +53,7 @@ public class PartidoDao implements IDao<Partido, Integer>{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            todos = session.createQuery("from tb_partido").getResultList();
+            todos = session.createQuery("from Partido").getResultList();
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -102,4 +102,6 @@ public class PartidoDao implements IDao<Partido, Integer>{
             session.close();
         }
     }
+    
+    
 }

@@ -3,11 +3,13 @@
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <link href="CSS/style.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="images/politico.ico"/>
 
     <head>
-        <title>Inicio</title>
+        <title>Presidentes</title>
         <meta charset="UTF-8"/>
         <meta name='language' content='ES'/>
     </head>
@@ -19,6 +21,7 @@
             <div class="welcome-card" >
                 <h1>Bienvenido usuario: #{usuarioBean.usuario.nombreUsuario}
                     <h:commandButton class="btn-close" value="Cerrar sesión" action="#{usuarioBean.cerrarSesion()}"/>
+                    <h:commandButton class="btn-close" value="Partidos" action="#{usuarioBean.navegaPartido()}"/>
                 </h1>
 
 
@@ -47,7 +50,7 @@
                         <h:inputText value="#{presidenteBean.item.puestoRobado}" />
                     </p>
                     <p>Partido: 
-                        <h:inputText value="#{presidenteBean.item.partidoId}" />
+                        <h:inputText value="#{presidenteBean.item.partido}" />
                     </p>
                     <p>
                         <h:commandButton class="btn" value="Agregar" action="#{presidenteBean.add}" />
@@ -62,7 +65,7 @@
 
         <h:panelGroup rendered="#{presidenteBean.edit and (usuarioBean.verificarSesion())}">
             <div class="card">
-                <h2>Editar auto #{bean.item.id}</h2>
+                <h2>Editar presidente #{bean.item.id}</h2>
                 <h:form>
                     <p>Nombre: 
                         <h:inputText value="#{presidenteBean.item.nombre}" />
@@ -92,8 +95,31 @@
         <h:form rendered="#{not empty presidenteBean.presidentes and (usuarioBean.verificarSesion())}">
             <div class="new-table">
                 <h1>Presidentes</h1>
-                <h:dataTable value="#{presidenteBean.presidentes}" var="presidentes">
-                    
+                <h:dataTable value="#{presidenteBean.presidentes}" var="presidente">
+                    <h:column>
+                        <f:facet name="header">ID</f:facet>#{presidente.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nombre</f:facet>#{presidente.nombre}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Calidad de gobierno</f:facet>#{presidente.calidadGobierno}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">¿Es Dios?</f:facet>#{presidente.esDios}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Puesto robado</f:facet>#{presidente.puestoRobado}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Partido</f:facet>#{presidente.partido}
+                    </h:column>
+                    <h:column>
+                        <h:commandButton class="btn" value="Editar" action="#{presidenteBean.edit(presidente)}" />
+                    </h:column>
+                    <h:column>
+                        <h:commandButton class="btn" value="Eliminar" action="#{presidenteBean.delete(presidente)}" />
+                    </h:column>
                 </h:dataTable>
             </div>
         </h:form>

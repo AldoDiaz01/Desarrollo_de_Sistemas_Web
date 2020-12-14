@@ -1,5 +1,6 @@
 package com.uv.empresaurios.bean;
 
+import com.uv.empresaurios.dao.PartidoDao;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import javax.faces.bean.SessionScoped;
 
 import com.uv.empresaurios.model.Presidente;
 import com.uv.empresaurios.dao.PresidenteDao;
+import com.uv.empresaurios.model.Partido;
 import com.uv.empresaurios.util.CommonUtils;
 
 @ManagedBean
