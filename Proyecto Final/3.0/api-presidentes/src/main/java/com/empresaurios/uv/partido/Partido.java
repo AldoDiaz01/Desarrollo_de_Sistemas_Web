@@ -27,6 +27,10 @@ public class Partido {
     public Partido() {
     }
 
+    public Partido(Integer id) {
+        this.id = id;
+    }
+
     public Partido(Integer id, @NotNull String nombre, @NotNull String nombreCompleto, @NotNull Integer antiguedad) {
         this.id = id;
         this.nombre = nombre;
