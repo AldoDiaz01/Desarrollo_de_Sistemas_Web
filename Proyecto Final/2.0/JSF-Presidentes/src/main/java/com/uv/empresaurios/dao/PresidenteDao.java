@@ -7,7 +7,8 @@ import com.uv.empresaurios.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class PresidenteDao implements IDao<Presidente, Integer>{
+public class PresidenteDao implements IDao<Presidente, Integer> {
+
     @Override
     public void insert(Presidente todo) {
         Transaction transaction = null;
@@ -102,5 +103,29 @@ public class PresidenteDao implements IDao<Presidente, Integer>{
             session.close();
         }
     }
-    
+
+
+    public Partido findPartidoByName(String name) {
+        Transaction transaction = null;
+
+        List<Partido> todos = null;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            transaction = session.beginTransaction();
+            todos = session.createQuery("from Partido where nombre = '" + name + "'").getResultList();
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+            if (todos.isEmpty()) {
+                return null;
+            }
+            return todos.get(0);
+        }
+    }
+
 }

@@ -20,7 +20,7 @@
 
         <h:form rendered="#{(usuarioBean.verificarSesion())}" >
             <div class="welcome-card" >
-                <h1>Bienvenido usuario: #{usuarioBean.usuario.nombreUsuario}
+                <h1>Bienvenido usuario: #{usuarioBean.usuario.email}
                     <h:commandButton class="btn-close" value="Cerrar sesión" action="#{usuarioBean.cerrarSesion()}"/>
                     <h:commandButton class="btn-close" value="Presidentes" action="#{usuarioBean.navegaPresidente()}"/>
                 </h1>

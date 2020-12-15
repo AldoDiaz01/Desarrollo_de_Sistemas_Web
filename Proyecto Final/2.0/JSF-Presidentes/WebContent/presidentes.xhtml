@@ -19,7 +19,7 @@
 
         <h:form rendered="#{(usuarioBean.verificarSesion())}" >
             <div class="welcome-card" >
-                <h1>Bienvenido usuario: #{usuarioBean.usuario.nombreUsuario}
+                <h1>Bienvenido usuario: #{usuarioBean.usuario.email}
                     <h:commandButton class="btn-close" value="Cerrar sesión" action="#{usuarioBean.cerrarSesion()}"/>
                     <h:commandButton class="btn-close" value="Partidos" action="#{usuarioBean.navegaPartido()}"/>
                 </h1>
@@ -50,7 +50,7 @@
                         <h:inputText value="#{presidenteBean.item.puestoRobado}" />
                     </p>
                     <p>Partido: 
-                        <h:inputText value="#{presidenteBean.item.partido}" />
+                        <h:inputText value="#{presidenteBean.nombrePartido}" />
                     </p>
                     <p>
                         <h:commandButton class="btn" value="Agregar" action="#{presidenteBean.add}" />
@@ -83,7 +83,7 @@
                         <h:inputText value="#{presidenteBean.item.puestoRobado}" />
                     </p>
                     <p>Partido: 
-                        <h:inputText value="#{presidenteBean.item.partidoId}" />
+                        <h:inputText value="#{presidenteBean.nombrePartido}" />
                     </p>
                     <p>
                         <h:commandButton class="btn" value="Guardar" action="#{presidenteBean.saveEdit}" />
@@ -112,7 +112,7 @@
                         <f:facet name="header">Puesto robado</f:facet>#{presidente.puestoRobado}
                     </h:column>
                     <h:column>
-                        <f:facet name="header">Partido</f:facet>#{presidente.partido}
+                        <f:facet name="header">Partido</f:facet>#{presidente.partido.nombre}
                     </h:column>
                     <h:column>
                         <h:commandButton class="btn" value="Editar" action="#{presidenteBean.edit(presidente)}" />

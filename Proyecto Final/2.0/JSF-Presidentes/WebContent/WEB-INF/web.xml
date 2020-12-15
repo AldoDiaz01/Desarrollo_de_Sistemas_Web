@@ -28,7 +28,7 @@
     <context-param>
         <param-name>BaseUrl</param-name>
         <param-value>
-            http://localhost:8084/JSF-Presidentes/
+            http://localhost:8081/JSF-Presidentes/
         </param-value>
     </context-param>
 </web-app>

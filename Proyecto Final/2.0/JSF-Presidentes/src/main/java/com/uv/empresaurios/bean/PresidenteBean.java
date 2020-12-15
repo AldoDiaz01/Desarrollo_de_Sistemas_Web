@@ -23,6 +23,7 @@ public class PresidenteBean implements Serializable{
     private Presidente item = new Presidente();
     private Presidente beforeEditItem = null;
     private boolean edit;
+    private String nombrePartido;
 
     @ManagedProperty(value = "#{commonUtils}")
     private CommonUtils util;
@@ -44,6 +45,7 @@ public class PresidenteBean implements Serializable{
     }
 
     public void add() {
+        item.setPartido(presidenteDao.findPartidoByName(nombrePartido));
         presidenteDao.insert(item);
         item = new Presidente();
         util.redirectWithGet();
@@ -98,4 +100,14 @@ public class PresidenteBean implements Serializable{
     public boolean isEdit() {
         return this.edit;
     }
+
+    public String getNombrePartido() {
+        return nombrePartido;
+    }
+
+    public void setNombrePartido(String nombrePartido) {
+        this.nombrePartido = nombrePartido;
+    }
+    
+    
 }
