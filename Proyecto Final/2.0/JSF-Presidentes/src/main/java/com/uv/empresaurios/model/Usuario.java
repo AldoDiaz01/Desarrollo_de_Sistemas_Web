@@ -17,17 +17,17 @@ public class Usuario implements Serializable {
     @GeneratedValue(generator = "id_usuario")
     @Column(name = "id")
     private Integer id;
-    @Column(name = "nombre_usuario")
-    private String nombreUsuario;
+    @Column(name = "email")
+    private String email;
     @Column(name = "clave")
     private String clave;
 
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombreUsuario, String clave) {
+    public Usuario(Integer id, String email, String clave) {
         this.id = id;
-        this.nombreUsuario = nombreUsuario;
+        this.email = email;
         this.clave = clave;
     }
 
@@ -39,12 +39,12 @@ public class Usuario implements Serializable {
         this.id = id;
     }
 
-    public String getNombreUsuario() {
-        return nombreUsuario;
+    public String getEmail() {
+        return email;
     }
 
-    public void setNombreUsuario(String nombreUsuario) {
-        this.nombreUsuario = nombreUsuario;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getClave() {
@@ -57,7 +57,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombreUsuario=" + nombreUsuario + ", clave=" + clave + '}';
+        return "Usuario{" + "id=" + id + ", email=" + email + ", clave=" + clave + '}';
     }
     
     

@@ -12,7 +12,7 @@ public class UsuarioDao {
         Usuario usuarioVerificado = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            String hql = "FROM Usuario WHERE nombre_usuario = '" + usuario.getNombreUsuario()
+            String hql = "FROM Usuario WHERE email = '" + usuario.getEmail()
                     + "' AND clave = '" + usuario.getClave() + "'";
             Query query = session.createQuery(hql);
 
