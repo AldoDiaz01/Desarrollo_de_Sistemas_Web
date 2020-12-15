@@ -11,26 +11,28 @@ import javax.validation.constraints.NotNull;
 public class Presidente {
 
     @Id
-    @GeneratedValue(generator = "increment_gen")
-    @GenericGenerator(name = "increment_gen", strategy = "increment")
+    @GenericGenerator(name = "id_presidente", strategy = "increment")
+    @GeneratedValue(generator = "id_presidente")
     private Integer id;
     @NotNull
     private String nombre;
     @NotNull
-    private Double edad;
+    private int edad;
     @NotNull
-    private Integer puestoRobado;
+    private int puestoRobado;
     @NotNull
-    private Integer calidadGobierno;
+    private int calidadGobierno;
     @NotNull
+    @Column(name = "es_dios")
     private Boolean esDios;
     @ManyToOne
+    @JoinColumn(foreignKey = @ForeignKey(name = "president_to_partido_fk"), name = "partido")
     private Partido partido;
 
     public Presidente() {
     }
 
-    public Presidente(Integer id, @NotNull String nombre, @NotNull Double edad, @NotNull Integer puestoRobado, @NotNull Integer calidadGobierno, @NotNull Boolean esDios) {
+    public Presidente(Integer id, @NotNull String nombre, @NotNull int edad, @NotNull int puestoRobado, @NotNull int calidadGobierno, @NotNull Boolean esDios) {
         this.id = id;
         this.nombre = nombre;
         this.edad = edad;
@@ -39,7 +41,7 @@ public class Presidente {
         this.esDios = esDios;
     }
 
-    public Presidente(Integer id, @NotNull String nombre, @NotNull Double edad, @NotNull Integer puestoRobado, @NotNull Integer calidadGobierno, @NotNull Boolean esDios, Partido partido) {
+    public Presidente(Integer id, @NotNull String nombre, @NotNull int edad, @NotNull int puestoRobado, @NotNull int calidadGobierno, @NotNull Boolean esDios, Partido partido) {
         this.id = id;
         this.nombre = nombre;
         this.edad = edad;
@@ -49,11 +51,11 @@ public class Presidente {
         this.partido = partido;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -65,27 +67,27 @@ public class Presidente {
         this.nombre = nombre;
     }
 
-    public Double getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(Double edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 
-    public Integer getPuestoRobado() {
+    public int getPuestoRobado() {
         return puestoRobado;
     }
 
-    public void setPuestoRobado(Integer puestoRobado) {
+    public void setPuestoRobado(int puestoRobado) {
         this.puestoRobado = puestoRobado;
     }
 
-    public Integer getCalidadGobierno() {
+    public int getCalidadGobierno() {
         return calidadGobierno;
     }
 
-    public void setCalidadGobierno(Integer calidadGobierno) {
+    public void setCalidadGobierno(int calidadGobierno) {
         this.calidadGobierno = calidadGobierno;
     }
 
@@ -107,14 +109,14 @@ public class Presidente {
 
     @Override
     public String toString() {
-        return "Presidente{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", edad=" + edad +
-                ", puestoRobado=" + puestoRobado +
-                ", calidadGobierno=" + calidadGobierno +
-                ", esDios=" + esDios +
-                ", partido=" + partido +
-                '}';
+        return "Presidente{"
+                + "id=" + id
+                + ", nombre='" + nombre + '\''
+                + ", edad=" + edad
+                + ", puestoRobado=" + puestoRobado
+                + ", calidadGobierno=" + calidadGobierno
+                + ", esDios=" + esDios
+                + ", partido=" + partido
+                + '}';
     }
 }

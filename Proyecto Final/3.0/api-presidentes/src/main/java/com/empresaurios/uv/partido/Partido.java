@@ -1,6 +1,6 @@
 package com.empresaurios.uv.partido;
 
-
+import javax.persistence.Column;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -14,15 +14,16 @@ import javax.validation.constraints.NotNull;
 public class Partido {
 
     @Id
-    @GeneratedValue(generator = "increment_gen")
-    @GenericGenerator(name = "increment_gen", strategy = "increment")
+    @GenericGenerator(name = "id_partido", strategy = "increment")
+    @GeneratedValue(generator = "id_partido")
     private Integer id;
     @NotNull
     private String nombre;
     @NotNull
+    @Column(name = "nombre_completo")
     private String nombreCompleto;
     @NotNull
-    private Integer antiguedad;
+    private int antiguedad;
 
     public Partido() {
     }
@@ -31,18 +32,18 @@ public class Partido {
         this.id = id;
     }
 
-    public Partido(Integer id, @NotNull String nombre, @NotNull String nombreCompleto, @NotNull Integer antiguedad) {
+    public Partido(Integer id, @NotNull String nombre, @NotNull String nombreCompleto, @NotNull int antiguedad) {
         this.id = id;
         this.nombre = nombre;
         this.nombreCompleto = nombreCompleto;
         this.antiguedad = antiguedad;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -72,11 +73,11 @@ public class Partido {
 
     @Override
     public String toString() {
-        return "Presidente{" +
-                "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", nombreCompleto='" + nombreCompleto + '\'' +
-                ", antiguedad=" + antiguedad +
-                '}';
+        return "Presidente{"
+                + "id=" + id
+                + ", nombre='" + nombre + '\''
+                + ", nombreCompleto='" + nombreCompleto + '\''
+                + ", antiguedad=" + antiguedad
+                + '}';
     }
 }

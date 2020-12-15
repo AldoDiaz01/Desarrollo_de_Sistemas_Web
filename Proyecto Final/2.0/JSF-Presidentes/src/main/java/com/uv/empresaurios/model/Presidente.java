@@ -33,7 +33,7 @@ public class Presidente implements Serializable {
     private boolean esDios;
 
     @Column(name = "puesto_robado")
-    private String puestoRobado;
+    private int puestoRobado;
 
     @ManyToOne()
     @JoinColumn(foreignKey = @ForeignKey(name = "president_to_partido_fk"), name = "partido")
@@ -42,7 +42,7 @@ public class Presidente implements Serializable {
     public Presidente() {
     }
 
-    public Presidente(Integer id, String nombre, int edad, int calidadGobierno, boolean esDios, String puestoRobado, Partido partido) {
+    public Presidente(Integer id, String nombre, int edad, int calidadGobierno, boolean esDios, int puestoRobado, Partido partido) {
         this.id = id;
         this.nombre = nombre;
         this.edad = edad;
@@ -92,11 +92,11 @@ public class Presidente implements Serializable {
         this.esDios = esDios;
     }
 
-    public String getPuestoRobado() {
+    public int getPuestoRobado() {
         return puestoRobado;
     }
 
-    public void setPuestoRobado(String puestoRobado) {
+    public void setPuestoRobado(int puestoRobado) {
         this.puestoRobado = puestoRobado;
     }
 

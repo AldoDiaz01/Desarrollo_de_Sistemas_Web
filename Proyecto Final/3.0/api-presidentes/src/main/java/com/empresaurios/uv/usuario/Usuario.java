@@ -13,8 +13,8 @@ import javax.validation.constraints.NotNull;
 public class Usuario {
 
     @Id
-    @GeneratedValue(generator = "increment_gen")
-    @GenericGenerator(name = "increment_gen", strategy = "increment")
+    @GenericGenerator(name = "id_usuario", strategy = "increment")
+    @GeneratedValue(generator = "id_usuario")
     private Integer id;
     private String email;
     private String clave;
@@ -54,10 +54,10 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario{" +
-                "id=" + id +
-                ", email='" + email + '\'' +
-                ", clave='" + clave + '\'' +
-                '}';
+        return "Usuario{"
+                + "id=" + id
+                + ", email='" + email + '\''
+                + ", clave='" + clave + '\''
+                + '}';
     }
 }

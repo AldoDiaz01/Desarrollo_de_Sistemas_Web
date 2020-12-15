@@ -13,8 +13,8 @@ import org.hibernate.annotations.GenericGenerator;
 public class Partido implements Serializable{
 
     @Id
-    @GenericGenerator(name = "id_usuario", strategy = "increment")
-    @GeneratedValue(generator = "id_usuario")
+    @GenericGenerator(name = "id_partido", strategy = "increment")
+    @GeneratedValue(generator = "id_partido")
     @Column(name = "id")
     private Integer id;
 
