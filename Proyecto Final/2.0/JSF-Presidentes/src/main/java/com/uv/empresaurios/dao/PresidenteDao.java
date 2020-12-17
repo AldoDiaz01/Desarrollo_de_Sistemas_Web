@@ -73,7 +73,9 @@ public class PresidenteDao implements IDao<Presidente, Integer> {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            session.delete(String.valueOf(id), Presidente.class);
+            Presidente todo = null;
+            todo = session.get(Presidente.class, id);
+            session.delete(todo);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -103,7 +105,6 @@ public class PresidenteDao implements IDao<Presidente, Integer> {
             session.close();
         }
     }
-
 
     public Partido findPartidoByName(String name) {
         Transaction transaction = null;

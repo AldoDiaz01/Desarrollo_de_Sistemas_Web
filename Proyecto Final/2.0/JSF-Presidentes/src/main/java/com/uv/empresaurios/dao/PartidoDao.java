@@ -6,7 +6,7 @@ import com.uv.empresaurios.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-public class PartidoDao implements IDao<Partido, Integer>{
+public class PartidoDao implements IDao<Partido, Integer> {
 
     @Override
     public void insert(Partido todo) {
@@ -72,7 +72,11 @@ public class PartidoDao implements IDao<Partido, Integer>{
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();
-            session.delete(String.valueOf(id), Partido.class);
+            Partido todo = null;
+            todo = session.get(Partido.class, id);
+            
+            session.delete(todo);
+            
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
@@ -102,6 +106,5 @@ public class PartidoDao implements IDao<Partido, Integer>{
             session.close();
         }
     }
-    
-    
+
 }
