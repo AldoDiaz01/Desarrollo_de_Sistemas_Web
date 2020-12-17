@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface PartidoRepository extends CrudRepository<Partido, Integer> {
     
-    Optional<Partido> findByNombre(String nombre);
+    
 }

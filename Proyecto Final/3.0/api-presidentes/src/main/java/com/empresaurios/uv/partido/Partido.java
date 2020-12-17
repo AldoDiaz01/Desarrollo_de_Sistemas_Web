@@ -32,18 +32,18 @@ public class Partido {
         this.id = id;
     }
 
-    public Partido(Integer id, @NotNull String nombre, @NotNull String nombreCompleto, @NotNull int antiguedad) {
+    public Partido(Integer id, @NotNull String nombre, @NotNull String nombreCompleto, @NotNull Integer antiguedad) {
         this.id = id;
         this.nombre = nombre;
         this.nombreCompleto = nombreCompleto;
         this.antiguedad = antiguedad;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

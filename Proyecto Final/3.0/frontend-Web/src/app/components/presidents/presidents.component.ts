@@ -31,6 +31,7 @@ export class PresidentsComponent implements OnInit {
     this.president = new Presidente();
     this.presidents = new Array<Presidente>();
     this.politicals = new Array<Partido>();
+    this.president.esDios = false;
     this.getAll();
     this.getPartidos();
     this.cols = [

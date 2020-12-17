@@ -27,6 +27,7 @@ public class PresidenteController {
             repository.save(entity);
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }

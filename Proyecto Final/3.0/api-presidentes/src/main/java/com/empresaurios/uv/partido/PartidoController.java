@@ -21,10 +21,6 @@ public class PartidoController {
         return repository.findById(id).orElse(null);
     }
 
-    @GetMapping("/buscar/{nombre}")
-    public Partido getByNombre(@PathVariable String nombre) {
-        return repository.findByNombre(nombre).orElse(null);
-    }
 
     @PostMapping
     public Boolean post(@RequestBody Partido entity) {
@@ -32,6 +28,7 @@ public class PartidoController {
             repository.save(entity);
             return true;
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
     }
