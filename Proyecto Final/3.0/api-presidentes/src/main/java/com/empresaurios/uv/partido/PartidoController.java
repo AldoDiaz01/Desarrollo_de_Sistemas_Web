@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/partidos")
+@CrossOrigin("*")
 public class PartidoController {
 
     @Autowired
@@ -21,7 +22,7 @@ public class PartidoController {
     }
 
     @GetMapping("/buscar/{nombre}")
-    public Partido getById(@PathVariable String nombre) {
+    public Partido getByNombre(@PathVariable String nombre) {
         return repository.findByNombre(nombre).orElse(null);
     }
 
