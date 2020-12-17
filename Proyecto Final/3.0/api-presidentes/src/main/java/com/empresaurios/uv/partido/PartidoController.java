@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/partidos")
-@CrossOrigin("*")
 public class PartidoController {
 
     @Autowired
@@ -20,12 +19,11 @@ public class PartidoController {
     public Partido getById(@PathVariable Integer id) {
         return repository.findById(id).orElse(null);
     }
-    
-     @GetMapping("/busar/{nombre}")
-    public Partido getByNombre(@PathVariable String nombre) {
-        return repository.findByNombre(nombre);
+
+    @GetMapping("/buscar/{nombre}")
+    public Partido getById(@PathVariable String nombre) {
+        return repository.findByNombre(nombre).orElse(null);
     }
-    
 
     @PostMapping
     public Boolean post(@RequestBody Partido entity) {
@@ -57,5 +55,4 @@ public class PartidoController {
             return false;
         }
     }
-    
 }
