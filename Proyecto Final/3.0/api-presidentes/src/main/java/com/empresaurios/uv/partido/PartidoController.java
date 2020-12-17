@@ -1,6 +1,5 @@
 package com.empresaurios.uv.partido;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,10 +21,9 @@ public class PartidoController {
         return repository.findById(id).orElse(null);
     }
     
-    @GetMapping("/busar/{nombre}")
+     @GetMapping("/busar/{nombre}")
     public Partido getByNombre(@PathVariable String nombre) {
-        List<Partido> lstPartidoExist = repository.findByNombre(nombre);
-        return lstPartidoExist.get(0);
+        return repository.findByNombre(nombre);
     }
     
 
