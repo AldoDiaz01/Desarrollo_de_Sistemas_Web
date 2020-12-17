@@ -14,6 +14,7 @@ public class UsuarioBean {
     
     private UsuarioDao usuarioDao;
     private Usuario usuario;
+    private String email;
     
     public UsuarioBean() {
         usuarioDao = new UsuarioDao();
@@ -21,6 +22,7 @@ public class UsuarioBean {
     }
 
     public Usuario getUsuario() {
+        this.email = usuario.getEmail();
         return usuario;
     }
 
@@ -91,4 +93,14 @@ public class UsuarioBean {
      public String navegaPresidente() {
         return "presidentes.xhtml";
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+     
+     
 }

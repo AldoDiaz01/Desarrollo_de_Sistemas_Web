@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/presidentes")
+@CrossOrigin("*")
 public class PresidenteController {
 
     @Autowired

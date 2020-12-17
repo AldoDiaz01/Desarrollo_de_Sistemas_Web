@@ -13,7 +13,6 @@ import javax.faces.bean.SessionScoped;
 
 import com.uv.empresaurios.model.Presidente;
 import com.uv.empresaurios.dao.PresidenteDao;
-import com.uv.empresaurios.model.Partido;
 import com.uv.empresaurios.util.CommonUtils;
 
 @ManagedBean
@@ -108,6 +107,6 @@ public class PresidenteBean implements Serializable{
     public void setNombrePartido(String nombrePartido) {
         this.nombrePartido = nombrePartido;
     }
-    
+
     
 }

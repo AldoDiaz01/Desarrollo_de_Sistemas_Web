@@ -21,6 +21,7 @@ public class PartidoBean implements Serializable {
     private Partido item = new Partido();
     private Partido beforeEditItem = null;
     private boolean edit;
+    private String email;
 
     @ManagedProperty(value = "#{commonUtils}")
     private CommonUtils util;
@@ -96,4 +97,14 @@ public class PartidoBean implements Serializable {
     public boolean isEdit() {
         return this.edit;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    
 }

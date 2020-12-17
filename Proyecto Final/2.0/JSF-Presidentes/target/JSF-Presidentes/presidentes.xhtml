@@ -2,9 +2,12 @@
 <!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+<html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
     <link href="CSS/style.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" type="image/x-icon" href="images/politico.ico"/>
 
@@ -19,7 +22,7 @@
 
         <h:form rendered="#{(usuarioBean.verificarSesion())}" >
             <div class="welcome-card" >
-                <h1>Bienvenido usuario: #{usuarioBean.usuario.email}
+                <h1>Bienvenido usuario: #{usuarioBean.email}
                     <h:commandButton class="btn-close" value="Cerrar sesión" action="#{usuarioBean.cerrarSesion()}"/>
                     <h:commandButton class="btn-close" value="Partidos" action="#{usuarioBean.navegaPartido()}"/>
                 </h1>
