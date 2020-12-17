@@ -1,0 +1,110 @@
+<p-tabMenu [model]="itemsNavbar" [activeItem]="items[0]"></p-tabMenu>
+
+<div class="ui-g">
+  <p-toast></p-toast>
+  <p-confirmDialog header="Confirmacion" acceptLabel="Si" rejectLabel="No" icon="pi pi-exclamation-triangle">
+  </p-confirmDialog>
+  <p-panel header="Administración de presidentes" [style]="{width: '60%', margin: '0 auto', paddingTop: '2em'}">
+    <div style="margin-bottom: 20px">
+      <p-menubar [model]="items"></p-menubar>
+    </div>
+    <p-table [value]="presidents" [columns]="cols" [responsive]="true" selectionMode="single"
+      [(selection)]="selectedPresident" dataKey="id" [paginator]="true" [rows]="5">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-president let-columns="columns">
+        <tr [pSelectableRow]="president">
+          <td>{{president.id}}</td>
+          <td>{{president.nombre}}</td>
+          <td>{{president.edad}}</td>
+          <td>{{president.puestoRobado}}</td>
+          <td>{{president.calidadGobierno}}</td>
+          <td>{{president.esDios}}</td>
+          <td>{{president.partido.nombre}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+  <p-dialog header="Presidente" [responsive]="true" [style]="{width: '400px'}" [(visible)]="displaySaveDialog"
+    [modal]="true">
+    <div style="margin-top: 28px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input id="nombre" type="text" pInputText [(ngModel)]="president.nombre">
+            <label for="nombre">Nombre</label>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <p-inputNumber [(ngModel)]="president.edad" [showButtons]="true"></p-inputNumber>
+
+            <label for="direccion">Edad</label>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px">
+      <label for="direccion">Calidad de gobierno</label>
+    </div>
+    <div style="margin-top: 5px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <p-rating [(ngModel)]="president.calidadGobierno">Calidad de gobierno</p-rating>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px">
+      
+      <label for="telefono">¿Es dios?</label>
+      <div style="margin-top: 5px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <p-inputSwitch [(ngModel)]="president.esDios"></p-inputSwitch>
+          </span>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <p-inputNumber inputId="inputnumber" [(ngModel)]="president.puestoRobado"></p-inputNumber>
+            <label for="telefono">Puesto robado</label>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 28px; margin-bottom: 10px;">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <p-dropdown inputId="dropdown" [autoDisplayFirst]="false" [options]="politicals" [(ngModel)]="president.partido" optionLabel="name"></p-dropdown>
+            <label for="telefono">Partido</label>
+          </span>
+        </div>
+      </div>
+    </div>
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button type="button" pButton icon="pi pi-check" (click)="save()" label="Guardar"></button>
+      </div>
+    </p-footer>
+  </p-dialog>
+</div>

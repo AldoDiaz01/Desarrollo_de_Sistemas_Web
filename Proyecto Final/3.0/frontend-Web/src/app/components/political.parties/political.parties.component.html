@@ -1,0 +1,74 @@
+<p-tabMenu [model]="itemsNavbar" [activeItem]="items[0]"></p-tabMenu>
+
+<div class="ui-g">
+  <p-toast></p-toast>
+  <p-confirmDialog header="Confirmacion" acceptLabel="Si" rejectLabel="No" icon="pi pi-exclamation-triangle">
+  </p-confirmDialog>
+  <p-panel header="Administración de partidos" [style]="{width: '60%', margin: '0 auto', paddingTop: '2em'}">
+    <div style="margin-bottom: 20px">
+      <p-menubar [model]="items"></p-menubar>
+    </div>
+    <p-table [value]="politicals" [columns]="cols" [responsive]="true" selectionMode="single"
+      [(selection)]="selectedPartido" dataKey="id" [paginator]="true" [rows]="5">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th *ngFor="let col of columns">
+            {{col.header}}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-political let-columns="columns">
+        <tr [pSelectableRow]="political">
+          <td>{{political.id}}</td>
+          <td>{{political.nombre}}</td>
+          <td>{{political.antiguedad}}</td>
+          <td>{{political.nombreCompleto}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </p-panel>
+  <p-dialog header="Partido" [responsive]="true" [style]="{width: '400px'}" [(visible)]="displaySaveDialog"
+    [modal]="true">
+    <div style="margin-top: 28px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input id="nombre" type="text" pInputText [(ngModel)]="political.nombre">
+            <label for="nombre">Nombre</label>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px">
+
+
+      <label for="nombre">Antigüedad</label>
+    </div>
+    <div style="margin-top: 6px">
+      <span class="p-float-label">
+        <p-inputNumber [(ngModel)]="political.antiguedad" mode="decimal" [showButtons]="true" buttonLayout="vertical"
+          spinnerMode="vertical" decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary"
+          incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
+      </span>
+    </div>
+
+    <div style="margin-top: 32px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input id="nombre" type="text" pInputText [(ngModel)]="political.nombreCompleto">
+            <label for="nombre">Nombre Completo</label>
+          </span>
+        </div>
+      </div>
+    </div>
+
+
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button type="button" pButton icon="pi pi-check" (click)="save()" label="Guardar"></button>
+      </div>
+    </p-footer>
+  </p-dialog>
+</div>

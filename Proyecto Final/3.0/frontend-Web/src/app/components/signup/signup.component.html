@@ -1,0 +1,32 @@
+<p-dialog header="Registrar" [responsive]="true" [style]="{width: '400px'}" [(visible)]="displaySaveDialog" [modal]="true">
+    <div style="margin-top: 28px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input id="nombre" type="text" pInputText [(ngModel)]="user.email">
+            <label for="nombre">Correo</label>
+          </span>
+        </div>
+      </div>
+    </div>
+  
+    <div style="margin-top: 28px">
+      <div class="p-grid p-fluid">
+        <div class="p-col-12 p-md-4">
+          <span class="p-float-label">
+            <input id="password" type="password" pInputText [(ngModel)]="user.clave">
+            <label for="password">Contraseña</label>
+          </span>
+        </div>
+      </div>
+    </div>
+  
+  
+    <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+        <button type="button" pButton icon="pi pi-check" (click)="signup()" label="Aceptar"></button>
+        <button type="button" pButton icon="pi pi-user-plus" (click)="navegarLogin()" label="Iniciar sesion"></button>
+      </div>
+    </p-footer>
+  </p-dialog>
+  
